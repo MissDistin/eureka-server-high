@@ -1,0 +1,62 @@
+#spring:
+#  application:
+#    name: EUREKA-HA
+#---
+#spring:
+#  profiles: peer1
+#server:
+#  port: 8000
+#eureka:
+#  server:
+#    #测试时关闭自我保护机制，保证不可用服务及时踢出
+#    enable-self-preservation: false
+#  instance:
+#    #注册中心的名字
+#    hostname: peer1
+#  client:
+#    #代表不向注册中心注册自己
+#    registerWithEureka: false
+#    #检错服务，由于注册中心是维护服务，所以不需要检索服务
+#    fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://peer2:8001/eureka/,http://peer3:8002/eureka/
+#
+#---
+#spring:
+#  profiles: peer2
+#server:
+#  port: 8001
+#eureka:
+#  server:
+#    #测试时关闭自我保护机制，保证不可用服务及时踢出
+#    enable-self-preservation: false
+#  instance:
+#    #注册中心的名字
+#    hostname: peer2
+#  client:
+#    #代表不向注册中心注册自己
+#    registerWithEureka: false
+#    #检错服务，由于注册中心是维护服务，所以不需要检索服务
+#    fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://peer2:8000/eureka/,http://peer3:8002/eureka/
+#
+#---
+#spring:
+#  profiles: peer3
+#server:
+#  port: 8002
+#eureka:
+#  server:
+#    #测试时关闭自我保护机制，保证不可用服务及时踢出
+#    enable-self-preservation: false
+#  instance:
+#    #注册中心的名字
+#    hostname: peer3
+#  client:
+#    #代表不向注册中心注册自己
+#    registerWithEureka: false
+#    #检错服务，由于注册中心是维护服务，所以不需要检索服务
+#    fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://peer2:8000/eureka/,http://peer3:8001/eureka/
